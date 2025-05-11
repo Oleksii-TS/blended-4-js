@@ -1,0 +1,10 @@
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function o(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=o(e);fetch(e.href,r)}})();const l=document.querySelector(".header-form");document.querySelector(".theme-toggle-button");const n=document.querySelector(".tasks-list");function c(s){const t=JSON.parse(localStorage.getItem("tasks"))||[];t.push(s),localStorage.setItem("tasks",JSON.stringify(t))}function u(s){const o=(JSON.parse(localStorage.getItem("tasks"))||[]).filter((i,e)=>e!==s);localStorage.setItem("tasks",JSON.stringify(o))}function d(){const t=(JSON.parse(localStorage.getItem("tasks"))||[]).map(({title:o,description:i})=>`<li class="task-list-item">
+        <button class="task-list-item-btn">Delete</button>
+        <h3>${o}</h3>
+        <p>${i}</p>
+      </li>`).join("");n.insertAdjacentHTML("beforeend",t)}function m({title:s,description:t}){const o=`<li class="task-list-item">
+        <button class="task-list-item-btn">Delete</button>
+        <h3>${s}</h3>
+        <p>${t}</p>
+      </li>`;n.insertAdjacentHTML("beforeend",o)}d();l.addEventListener("submit",s=>{s.preventDefault();const t=s.target.taskName.value.trim(),o=s.target.taskDescription.value.trim();if(console.log(t),console.log(o),!t||!o)return alert("Заповніть усі поля форми");m({title:t,description:o}),c({title:t,description:o}),l.reset()});n.addEventListener("click",s=>{if(s.target.classList.contains("task-list-item-btn")){const t=s.target.closest(".task-list-item");console.log(t);const o=[...n.children].indexOf(t);u(o),t.remove()}});
+//# sourceMappingURL=index.js.map
