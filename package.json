@@ -1,11 +1,11 @@
 {
-  "name": "notes_books_v2",
+  "name": "blended-4-js",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/notes_books_v2/",
+    "build": "vite build --base=/blended-4-js/",
     "preview": "vite preview"
   },
   "devDependencies": {
